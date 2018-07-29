@@ -11,3 +11,9 @@
     position: relative;
     height: 80%;
 }
+#canvas {
+    height: 100%;
+}
+body {
+    margin: 0px;
+}

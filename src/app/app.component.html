@@ -19,23 +19,20 @@
                         <tbody>
                             <tr>
                                 <td>1</td>
-                                <td>Khoa lead</td>
+                                <td>Khoa dep trai</td>
                               </tr>
                               <tr>
                                 <td>2</td>
-                                <td>Khoa prime</td>
+                                <td>Nghi khung</td>
                               </tr>
                         </tbody>
                       </table>
                   </split-area>
                   <split-area size="70">
                     <div class="chart-container">
-                        <chart [type]="type" [data]="data" [options]="options"></chart>
-                    </div>           
-                    <br>
-                    <div class="btns">
-                        <button class="btn btn-warning" (click)="direction = (direction === 'horizontal') ? 'vertical' : 'horizontal'">{{ 'Toggle direction: "' + direction + '"' }}</button>    
-                    </div> 
+                        <canvas id="canvas">{{chart}}</canvas>
+                        <!-- <iframe src="/"></iframe> -->
+                    </div>    
                   </split-area>
               </split>
           </div>

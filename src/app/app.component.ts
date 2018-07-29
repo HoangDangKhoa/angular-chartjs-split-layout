@@ -68,63 +68,56 @@ export class AppComponent {
   }
 } */
 
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Chart } from 'chart.js';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-  title = 'app';
-  type = 'bar';
-  data = {
-    datasets: [{
+export class AppComponent implements OnInit {
+  chart: any;
+  ngOnInit(): void {
+    this.chart = new Chart('canvas', {
+      type: 'bar',
+      data: {
+        datasets: [{
           label: 'Bar Dataset',
-          data: [8, 2, 10, 4,8, 2, 10, 4,8, 2, 10, 4],
-          backgroundColor: 'rgba(255, 99, 132, 0.2)',
+          data: [10, 20, 30, 40],
+          backgroundColor: 'rgb(255, 99, 132)',
+        },{
+          label: 'Bar Dataset 2',
+          data: [15, 25, 40, 67],
+          backgroundColor: 'rgb(255, 159, 64)',
+        },{
+          label: 'Bar Dataset 3',
+          data: [25, 5, 20, 27],
+          backgroundColor: 'rgb(75, 192, 192)',
         },
         {
-          label: 'Bar Dataset2',
-          data: [10, 0, 13, 4,8, 2, 10, 4,8, 2, 10, 4],
-          backgroundColor: 'rgba(22, 32, 122, 0.2)',
-        },
-        {
-          label: 'Bar Dataset2',
-          data: [10, 0, 13, 4,8, 2, 10, 4,8, 2, 10, 4],
-          backgroundColor: 'rgba(5, 556, 44, 0.2)',
-        },
-        {
-          label: 'Bar Dataset2',
-          data: [10, 0, 13, 4,8, 2, 10, 4,8, 2, 10, 4],
-          backgroundColor: 'rgba(168, 37, 79, 0.2)',
-        },
-        {
-          label: 'Bar Dataset2',
-          data: [10, 0, 13, 4,8, 2, 10, 4,8, 2, 10, 4],
-          backgroundColor: 'rgba(54, 162, 235, 0.2)',
-        }, {
           label: 'Line Dataset',
-          data: [15, 10, 6, 5,8, 2, 10, 4,8, 2, 10, 4],
+          data: [50, 50, 50, 50],
 
           // Changes this dataset to become a line
-          type: 'line',
+          type: 'line'
         }],
-    labels: ['January', 'February', 'March', 'April','January', 'February', 'March', 'April','January', 'February', 'March', 'April']
-  };
-  options = {
-    responsive: true,
-    maintainAspectRatio: false,
-    scales: {
-      xAxes: [{
-          stacked: true
-      }],
-      yAxes: [{
-          stacked: true
-      }]
+        labels: ['January', 'February', 'March', 'April']
+      },
+      options: {
+        scales: {
+          xAxes: [{
+            stacked: true
+        }],
+        yAxes: [{
+            stacked: true
+        }]
+        },
+        maintainAspectRatio: false
+    }
+    });
   }
-  };
-
+ 
   areas = [
     {size: 25, order: 1, content: 'fg fdkjuh dfskhf dkujv fd vifdk hvdkuh fg'},
     {size: 75, order: 2, content: 'sd h vdshhf deuyf gduyeg hudeg hudfg  fd vifdk hvdkuh fg'},
